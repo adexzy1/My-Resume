@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@200;300;400&family=Playfair+Display:ital,wght@0,700;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Bebas+Neue&family=Nunito:wght@200;300;400&display=swap');
+
 :root {
   /* font styles */
   --semi_bold: 'Bebas Neue', cursive;
   --regular_font: 'Nunito', sans-serif;
-  --bold_font: 'Playfair Display', serif;
 
   /* colors */
   --black: #000;
@@ -23,13 +22,16 @@ body {
   font-family: var(--regular_font);
   height: 100%;
 }
+br {
+  display: none;
+}
 a {
   text-decoration: none;
   color: var(--black);
 }
 
 /* header section */
-header {
+.header_container {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -40,7 +42,7 @@ header {
   background-color: var(--white);
   z-index: 10;
 }
-header i {
+.header_container i {
   font-size: 30px;
   pointer-events: none;
 }
@@ -82,6 +84,9 @@ nav ul li a:hover {
   align-items: center;
   height: 100vh;
   justify-content: center;
+}
+.big_hero-img {
+  display: none;
 }
 .hero_img svg {
   fill: var(--grey);
@@ -140,8 +145,7 @@ nav ul li a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
-  padding-right: 1rem;
+  padding: 1.5rem 1rem 1.5rem 0;
 }
 .description_container h3 {
   background-color: var(--black);
@@ -157,6 +161,7 @@ nav ul li a:hover {
 }
 .description_container p {
   font-size: 12px;
+  color: var(--grey);
 }
 .details h3 {
   margin: 1rem;
@@ -174,13 +179,15 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 1rem;
 }
 .project_item {
-  width: 18rem;
   max-width: 30rem;
   background-color: var(--white);
-  box-shadow: -2px -1px 10px 0px rgba(0, 0, 0, 0.53);
+  border: 1px solid var(--grey);
   margin: 2rem 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .project_item img {
   width: 100%;
@@ -242,10 +249,10 @@ footer {
 footer h4 {
   padding: 1rem 0;
   font-size: 20px;
-  border-bottom: 1px solid var(--white);
+  border-bottom: 0.2px solid var(--grey);
 }
 address {
-  border-bottom: 1px solid var(--white);
+  border-bottom: 0.2px solid var(--grey);
   padding: 5px 0;
 }
 footer p {
@@ -281,4 +288,216 @@ footer span {
 }
 .socials a:hover {
   color: var(--grey);
+}
+
+/* media queries */
+@media only screen and (min-width: 768px) {
+  br {
+    display: block;
+  }
+  .description_container {
+    padding: 2rem 3rem 2rem 0;
+  }
+  .description_container h3 {
+    width: 15rem;
+  }
+  /* header section */
+  #menu-toggle {
+    display: none;
+  }
+  .header_container {
+    padding: 1rem 2.5rem;
+  }
+  nav {
+    position: unset;
+    background-color: none;
+    margin-top: 0;
+    width: unset;
+    padding: 10px;
+    transform: translateX(0);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  nav ul li a {
+    display: inline-block;
+    padding: 1px 0;
+    margin: 0 1rem;
+    border-bottom: unset;
+    transition: 0.2s ease;
+    font-weight: 300;
+  }
+  nav ul li:first-child {
+    border-top: none;
+  }
+  nav ul li a:hover,
+  nav ul li a:focus,
+  nav ul li a:active {
+    background-color: unset;
+    color: var(--grey);
+  }
+
+  /* hero section */
+  .hero_section {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .hero_details {
+    text-align: left;
+  }
+  .hero_img svg {
+    width: 23rem;
+    margin-right: 2.3rem;
+  }
+  .hero_details a {
+    width: 14rem;
+    text-align: center;
+  }
+
+  /* projects section */
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    margin: 2rem;
+  }
+  .project_item {
+    margin: auto;
+  }
+
+  /* sponsors section */
+  .sponsor_item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem;
+  }
+  .sponsor_item img {
+    width: 12rem;
+    margin: 5rem 0;
+  }
+  .sponsors_container p {
+    width: 15rem;
+  }
+  /* footer section */
+  .footer_container {
+    padding: 0 3rem;
+  }
+  .footer_container h4 {
+    font-size: 25px;
+    padding: 2rem 0;
+  }
+  address {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  address span {
+    font-size: 16px;
+    font-weight: 100;
+  }
+  .sub_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+  }
+  .sub_footer p {
+    font-weight: 200;
+  }
+  .socials a {
+    margin-left: 1rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* hero section */
+  .hero_img svg {
+    width: 25rem;
+    margin-right: 4rem;
+  }
+
+  /* about section */
+  .container .details {
+    display: flex;
+    padding: 2.5rem 3rem;
+  }
+  .project_item img {
+    height: 15rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .header_container {
+    padding: 1rem 4rem;
+    font-size: 1.2rem;
+  }
+  .hero_img svg {
+    width: 33rem;
+    margin-right: 4rem;
+  }
+  .hero_details h1 {
+    font-size: 5rem;
+  }
+  .hero_details p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+  .hero_details .hero_topic {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+  .hero_details a {
+    padding: 1.5rem;
+    font-size: 1.2rem;
+  }
+  .description_container h3,
+  .sponsors_container p {
+    font-size: 1.7rem;
+    width: 25rem;
+    padding: 0.7rem 1.5rem;
+  }
+  .description_container p {
+    font-size: 1rem;
+  }
+  .details h3 {
+    font-size: 1.3rem;
+  }
+  .details p {
+    font-size: 1.2rem;
+  }
+  footer span,
+  footer p,
+  .sub_footer p {
+    font-size: 1rem;
+  }
+  .sub_footer i {
+    font-size: 2rem;
+  }
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (min-width: 2560px) {
+  main {
+    max-width: 90rem;
+    margin: 0 auto;
+    border: 1px solid var(--grey);
+  }
+  header {
+    display: flex;
+    justify-content: center;
+  }
+  .header_container,
+  .footer_container {
+    width: 90rem;
+    padding: 0;
+  }
+  .header_container {
+    padding: 2rem;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+  }
 }
