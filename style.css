@@ -373,10 +373,10 @@ footer span {
     display: flex;
     justify-content: space-between;
     margin: 0 2rem;
+    padding: 5rem 0;
   }
   .sponsor_item img {
     width: 12rem;
-    margin: 5rem 0;
   }
   .sponsors_container p {
     width: 15rem;
